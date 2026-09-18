@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayesha Asghar | Software Engineering & AI Automation Portfolio</title>
+  <meta name="description" content="Portfolio of Ayesha Asghar — Software Engineering Student at COMSATS (CUI '29) & AI Intern at FlyRank AI. Showcasing Hostel Control Management System in C++, Study Planner in Java/Swing, Responsive Web Design & Forms in HTML/CSS, and Workflow Automation with n8n.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#07090e',
+              card: '#0e121c',
+              rust: '#c2410c',
+              orange: '#f97316',
+              amber: '#f59e0b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom 3D Neo-Futuristic Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#07090e] text-slate-100 min-h-screen flex flex-col antialiased relative">
+
+  <!-- Neo-Futuristic Ambient Background & Glows -->
+  <div class="fixed inset-0 neo-grid-pattern opacity-30 pointer-events-none z-0"></div>
+  <div class="ambient-glow-rust w-[500px] h-[500px] -top-32 -left-20"></div>
+  <div class="ambient-glow-amber w-[550px] h-[550px] top-1/2 -right-36"></div>
+
+  <!-- Toast Notification Mount -->
+  <div id="interactive-toast" class="hidden-toast p-3 rounded-xl bg-slate-900/95 border border-orange-500/40 text-xs font-mono text-orange-300 shadow-2xl flex items-center space-x-2"></div>
+
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="border-b border-slate-800/80 bg-[#07090e]/90 backdrop-blur-md sticky top-0 z-40 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between">
+      
+      <!-- Brand Logo with Clickable Icon Dock -->
+      <a href="#hero" class="flex items-center space-x-3 group">
+        <div class="icon-dock w-10 h-10 rounded-xl bg-orange-950/40 border border-orange-500/30 flex items-center justify-center text-orange-400 font-bold text-sm shadow-inner" data-info="Ayesha Asghar • Software Engineering '29">
+          AA
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-white text-base group-hover:text-orange-400 transition-colors">
+              Ayesha Asghar
+            </span>
+            <span class="w-2 h-2 rounded-full bg-orange-500 status-pulse-orange" title="Available for projects & internships"></span>
+          </div>
+          <span class="text-xs text-slate-400 font-mono block">Software Engineering '29 • FlyRank AI</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-orange-400 transition-colors">About</a>
+        <a href="#services" class="hover:text-orange-400 transition-colors">Services</a>
+        <a href="#projects" class="hover:text-orange-400 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-orange-400 transition-colors">Skills</a>
+        <a href="#experience" class="hover:text-orange-400 transition-colors">Experience</a>
+        <a href="#certifications" class="hover:text-orange-400 transition-colors">Certifications</a>
+        <a href="#contact" class="hover:text-orange-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Action CTA with Interactive Icons -->
+      <div class="hidden sm:flex items-center space-x-3">
+        <a href="https://www.linkedin.com/in/ayesha-asghar6" target="_blank" rel="noopener noreferrer" class="icon-dock px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 border border-slate-800 flex items-center space-x-1.5 transition-colors" data-info="Open LinkedIn Profile">
+          <i data-lucide="linkedin" class="w-4 h-4 text-sky-400"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="#contact" class="px-4 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 transition-all flex items-center space-x-1.5 shadow-md shadow-orange-600/20">
+          <span>Get in Touch</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="icon-dock lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-slate-800 bg-[#07090e] px-6 py-5 space-y-3">
+      <div class="flex flex-col space-y-2.5 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-orange-400">About</a>
+        <a href="#services" class="hover:text-orange-400">Services</a>
+        <a href="#projects" class="hover:text-orange-400">Projects</a>
+        <a href="#skills" class="hover:text-orange-400">Skills</a>
+        <a href="#experience" class="hover:text-orange-400">Experience</a>
+        <a href="#certifications" class="hover:text-orange-400">Certifications</a>
+        <a href="#contact" class="hover:text-orange-400">Contact</a>
+      </div>
+      <div class="pt-3 border-t border-slate-800 flex flex-col space-y-2">
+        <a href="https://www.linkedin.com/in/ayesha-asghar6" target="_blank" rel="noopener noreferrer" class="w-full py-2 text-center text-xs font-semibold rounded-xl bg-slate-900 border border-slate-800 text-slate-200 flex items-center justify-center gap-1.5">
+          <i data-lucide="linkedin" class="w-3.5 h-3.5 text-sky-400"></i> Connect on LinkedIn
+        </a>
+        <a href="#contact" class="w-full py-2 text-center text-xs font-semibold rounded-xl bg-orange-600 text-white">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       HERO SECTION WITH TASTEFUL 3D CARD
+       ====================================================================== -->
+  <section id="hero" class="relative z-10 pt-12 sm:pt-16 pb-16 px-4 sm:px-6 max-w-6xl mx-auto w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Left Hero Column -->
+      <div class="lg:col-span-7 space-y-5 text-left">
+        
+        <!-- Live Status Pill -->
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-slate-900/90 border border-orange-500/30 text-xs text-slate-300 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-orange-500 status-pulse-orange"></span>
+          <span>Software Engineering Student (CUI '29) • FlyRank AI Intern</span>
+        </div>
+
+        <!-- Headline with Rust/Orange Gradient -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          Building <span class="gradient-rust-orange">Software Systems</span>, AI Workflows & Responsive Web Apps.
+        </h1>
+
+        <!-- Narrative Subtitle -->
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+          I am <strong>Ayesha Asghar</strong>, a Software Engineering student at <strong>COMSATS (CUI '29)</strong> and AI Intern at <strong>FlyRank AI</strong>. I engineer desktop management systems in <span class="text-orange-300 font-medium">C++</span> and <span class="text-orange-300 font-medium">Java Swing</span>, responsive web interfaces in <span class="text-orange-300 font-medium">HTML & CSS</span>, and workflow automations using <span class="text-orange-300 font-medium">n8n</span>.
+        </p>
+
+        <!-- Proof Points / Quick Stats -->
+        <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg">
+          <div class="card-3d p-3.5 rounded-xl cursor-pointer" onclick="showToastNotification('FlyRank AI: Artificial Intelligence Intern')">
+            <span class="text-lg sm:text-xl font-extrabold text-white block">FlyRank AI</span>
+            <span class="text-[11px] font-mono text-slate-400">Current AI Intern</span>
+          </div>
+          <div class="card-3d p-3.5 rounded-xl cursor-pointer" onclick="showToastNotification('5 Verified Certifications: Make, GenAI, Python, Web Design')">
+            <span class="text-lg sm:text-xl font-extrabold text-orange-400 block">5+ Certs</span>
+            <span class="text-[11px] font-mono text-slate-400">Make, GenAI, Python</span>
+          </div>
+          <div class="card-3d p-3.5 rounded-xl cursor-pointer" onclick="showToastNotification('COMSATS Institute of Information and Technology (Class of 2029)')">
+            <span class="text-lg sm:text-xl font-extrabold text-amber-400 block">CUI '29</span>
+            <span class="text-[11px] font-mono text-slate-400">Software Eng.</span>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-wrap gap-3 pt-2 items-center">
+          <a href="#projects" class="px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 transition-all flex items-center space-x-2 shadow-md shadow-orange-600/25">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>View Real Projects</span>
+          </a>
+          <button onclick="document.getElementById('chatbot-toggle-btn').click()" class="icon-dock px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-200 bg-slate-900 border border-slate-800 flex items-center space-x-2" data-info="Launch interactive AI assistant">
+            <i data-lucide="bot" class="w-4 h-4 text-orange-400"></i>
+            <span>Ask AI About Me</span>
+          </button>
+          <button id="copy-email-btn" class="icon-dock px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 border border-slate-800 flex items-center space-x-1.5" data-info="Copy ayeshaasghar224@gmail.com">
+            <i data-lucide="copy" class="w-3.5 h-3.5 text-orange-400"></i>
+            <span>Copy Email</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Right Hero Column: Simple, Decent 3D Neo-Futuristic Identity Card -->
+      <div class="lg:col-span-5">
+        <div class="card-3d rounded-2xl p-6 border border-orange-500/25 relative overflow-hidden shadow-2xl shadow-orange-950/20">
+          
+          <!-- Card Header Bar -->
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800">
+            <div class="flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <span class="text-xs font-mono text-slate-400 ml-1.5">ayesha-profile-matrix.dev</span>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-orange-950/80 text-orange-300 border border-orange-500/30">CUI '29</span>
+          </div>
+
+          <!-- Identity Profile Card -->
+          <div class="flex items-center space-x-4 mb-5 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 p-0.5 shadow-md shrink-0">
+              <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center font-bold text-base text-orange-300">
+                AA
+              </div>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-white">Ayesha Asghar</h2>
+              <p class="text-xs text-slate-400">Software Engineering Student • Lahore, Pakistan</p>
+              <p class="text-xs font-mono text-orange-400 mt-0.5">ayeshaasghar224@gmail.com</p>
+            </div>
+          </div>
+
+          <!-- Key Project Matrix Pills -->
+          <div class="space-y-2.5 font-mono text-xs mb-5">
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-between cursor-pointer hover:border-orange-500/40 transition-colors" onclick="openCaseStudy('hostel-management')">
+              <div class="flex items-center space-x-2 text-slate-300">
+                <i data-lucide="laptop" class="w-3.5 h-3.5 text-orange-400"></i>
+                <span>Hostel Management</span>
+              </div>
+              <span class="text-orange-400 font-semibold text-[11px]">C++ (OOP)</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-between cursor-pointer hover:border-orange-500/40 transition-colors" onclick="openCaseStudy('study-planner')">
+              <div class="flex items-center space-x-2 text-slate-300">
+                <i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Smart Study Planner</span>
+              </div>
+              <span class="text-amber-400 font-semibold text-[11px]">Java (Swing GUI)</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-between cursor-pointer hover:border-orange-500/40 transition-colors" onclick="openCaseStudy('form-engine')">
+              <div class="flex items-center space-x-2 text-slate-300">
+                <i data-lucide="layout" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span>Interactive Forms</span>
+              </div>
+              <span class="text-emerald-400 font-semibold text-[11px]">HTML5 & CSS3</span>
+            </div>
+          </div>
+
+          <!-- Subtle Philosophy Quote -->
+          <div class="p-3 rounded-xl bg-orange-950/20 border border-orange-500/20 text-xs text-slate-300 italic flex items-center justify-between">
+            <span>"Learning by building. Testing real software systems."</span>
+            <i data-lucide="check" class="w-4 h-4 text-orange-400 shrink-0 ml-2"></i>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       ABOUT ME SECTION
+       ====================================================================== -->
+  <section id="about" class="relative z-10 py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full border-t border-slate-800/80">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- Left Narrative -->
+      <div class="lg:col-span-7 space-y-4">
+        <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold">Background & Mission</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          Software Engineering Student & Practical Developer.
+        </h2>
+        
+        <p class="text-slate-300 text-sm leading-relaxed">
+          I am <strong>Ayesha Asghar</strong>, currently pursuing my Bachelor of Science in Software Engineering at <strong>COMSATS Institute of Information and Technology</strong> (CUI '29) in Lahore, Pakistan. Alongside my academic curriculum, I work as an <strong>Artificial Intelligence Intern at FlyRank AI</strong>.
+        </p>
+
+        <p class="text-slate-300 text-sm leading-relaxed">
+          My technical roots are in object-oriented programming (OOP), relational databases, and modern web development. I have built functional systems including the <em>Hostel Control & Management System in C++</em>, the <em>Smart Study Planner in Java with Swing GUI</em>, and certified <em>Responsive Web Interfaces</em>.
+        </p>
+
+        <!-- Philosophy Box -->
+        <div class="card-3d p-4 rounded-xl flex items-start space-x-3">
+          <div class="icon-dock p-2 rounded-lg bg-orange-950/40 text-orange-400 border border-orange-500/30 shrink-0" data-info="Philosophy: Learning by Building">
+            <i data-lucide="hammer" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-xs font-mono uppercase tracking-wider text-white font-semibold">Philosophy: "Learning by Building"</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mt-1">
+              True software fluency comes from building and testing real systems. From C++ backend records to Java desktop GUIs and responsive web forms, every project is a step forward in practical engineering.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Core Competencies -->
+      <div class="lg:col-span-5 space-y-3">
+        <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Key Foundations</span>
+
+        <div class="card-3d p-4 rounded-xl">
+          <div class="flex items-center space-x-2.5 mb-1.5">
+            <div class="icon-dock w-8 h-8 rounded-lg bg-orange-950/40 text-orange-400 border border-orange-500/30 flex items-center justify-center text-xs" data-info="C++ and Java OOP Software Systems">
+              <i data-lucide="code-2" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-bold text-white">C++ & Java Software Systems</h3>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Developing structured desktop software like Hostel Management (C++) and Study Planners (Java Swing GUI).
+          </p>
+        </div>
+
+        <div class="card-3d p-4 rounded-xl">
+          <div class="flex items-center space-x-2.5 mb-1.5">
+            <div class="icon-dock w-8 h-8 rounded-lg bg-amber-950/40 text-amber-400 border border-amber-500/30 flex items-center justify-center text-xs" data-info="Workflow Automation with n8n">
+              <i data-lucide="network" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-bold text-white">Workflow Automation with n8n</h3>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Connecting webhooks, databases, and third-party APIs into autonomous automated pipelines.
+          </p>
+        </div>
+
+        <div class="card-3d p-4 rounded-xl">
+          <div class="flex items-center space-x-2.5 mb-1.5">
+            <div class="icon-dock w-8 h-8 rounded-lg bg-emerald-950/40 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-xs" data-info="Responsive Web Design (HTML & CSS)">
+              <i data-lucide="layout" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-bold text-white">Responsive Web Designs</h3>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Certified in Responsive Web Design. Creating accessible mobile-first interfaces and multi-step validation forms in HTML & CSS.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SERVICES SECTION (EXACTLY 3 SERVICES)
+       ====================================================================== -->
+  <section id="services" class="relative z-10 py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full border-t border-slate-800/80">
+    <div class="mb-10 space-y-2">
+      <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold">Specialized Capabilities</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        Services & Capabilities
+      </h2>
+      <p class="text-slate-400 text-xs sm:text-sm max-w-2xl">
+        Focused solutions in workflow automation, AI application development, and certified responsive web design.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Service 1: Workflow Automation using n8n -->
+      <div class="card-3d p-6 rounded-2xl flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="icon-dock w-11 h-11 rounded-xl bg-orange-950/40 text-orange-400 border border-orange-500/30 flex items-center justify-center" data-info="Workflow Automation using n8n">
+            <i data-lucide="network" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Workflow Automation using n8n</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Designing and deploying autonomous workflows that connect webhooks, cloud databases, and APIs to automate repetitive business tasks without manual overhead.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-800 flex flex-wrap gap-1.5">
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300">n8n</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300">Make.com</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300">Webhooks & APIs</span>
+        </div>
+      </div>
+
+      <!-- Service 2: Building Application using AI -->
+      <div class="card-3d p-6 rounded-2xl flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="icon-dock w-11 h-11 rounded-xl bg-amber-950/40 text-amber-400 border border-amber-500/30 flex items-center justify-center" data-info="Building Application using AI">
+            <i data-lucide="bot" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Building Application using AI</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Developing intelligent software tools, custom 24/7 conversational chatbots, and prompt-engineered workflows powered by modern Generative AI models.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-800 flex flex-wrap gap-1.5">
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300">AI Chatbots</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300">Prompt Engineering</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300">Generative AI</span>
+        </div>
+      </div>
+
+      <!-- Service 3: Responsive Web Designs -->
+      <div class="card-3d p-6 rounded-2xl flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="icon-dock w-11 h-11 rounded-xl bg-emerald-950/40 text-emerald-400 border border-emerald-500/30 flex items-center justify-center" data-info="Responsive Web Designs">
+            <i data-lucide="layout" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Responsive Web Designs</h3>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Crafting certified, accessible, and mobile-first website layouts using semantic HTML5 and modern CSS Grid/Flexbox, ensuring seamless viewing on all screens.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-800 flex flex-wrap gap-1.5">
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300">HTML5</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300">CSS3 Grid/Flexbox</span>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-300">Multi-Step Forms</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FEATURED PROJECTS SECTION (HOSTEL SYSTEM, STUDY PLANNER, FORMS, WEB)
+       ====================================================================== -->
+  <section id="projects" class="relative z-10 py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full border-t border-slate-800/80">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+      <div class="space-y-2">
+        <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold">Featured Work</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          Featured Engineering Projects
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm">
+          Click <strong>"View Case Study"</strong> on any project to inspect the technical architecture and tools used.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap gap-1.5">
+        <button data-filter="all" class="filter-btn-3d active px-3 py-1.5 rounded-lg text-xs font-mono bg-orange-600 text-white">All Projects</button>
+        <button data-filter="systems" class="filter-btn-3d px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-400 hover:text-white border border-slate-800">C++ Systems</button>
+        <button data-filter="desktop" class="filter-btn-3d px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-400 hover:text-white border border-slate-800">Java Swing</button>
+        <button data-filter="web" class="filter-btn-3d px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-900 text-slate-400 hover:text-white border border-slate-800">HTML & CSS</button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Project 1: Hostel Control & Management System (in C++) -->
+      <div data-category="systems" class="project-card-item card-3d p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-orange-950/80 text-orange-300 border border-orange-500/30">
+              Software Engineering in C++
+            </span>
+            <span class="text-xs font-mono text-slate-400">C++ / File Handling</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Hostel Control & Management System</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            Comprehensive student accommodation platform built in <strong>C++</strong>. Automates student room allocations, maintains resident databases, tracks fee records, and generates real-time occupancy reports.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="C++ Language">C++</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Object-Oriented Programming">OOP Architecture</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Persistent File Storage">File Handling</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Allocation Algorithms">Room Allocation</span>
+          </div>
+        </div>
+        <button onclick="openCaseStudy('hostel-management')" class="icon-dock w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors border border-slate-700" data-info="Open Hostel Management Case Study">
+          <span>View Technical Case Study</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+      <!-- Project 2: Smart Study Planner (in Java OOP & Swing GUI) -->
+      <div data-category="desktop" class="project-card-item card-3d p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-amber-950/80 text-amber-300 border border-amber-500/30">
+              Java OOP & Swing GUI
+            </span>
+            <span class="text-xs font-mono text-slate-400">Java / Swing GUI</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Smart Study Planner (Java Swing GUI)</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            Desktop academic scheduler and task planner engineered in <strong>Java</strong> with a dedicated <strong>Java Swing GUI</strong>. Structures semester course syllabi into daily revision blocks and tracks assignment deadlines.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Java Core Language">Java</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Java Swing Desktop GUI">Java Swing GUI</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Object-Oriented Design">OOP Principles</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Event-Driven UI Logic">Event Listeners</span>
+          </div>
+        </div>
+        <button onclick="openCaseStudy('study-planner')" class="icon-dock w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors border border-slate-700" data-info="Open Study Planner Case Study">
+          <span>View Technical Case Study</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+      <!-- Project 3: Interactive Multi-Step Form (in HTML & CSS) -->
+      <div data-category="web" class="project-card-item card-3d p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-500/30">
+              Responsive Web Design
+            </span>
+            <span class="text-xs font-mono text-slate-400">HTML5 / CSS3</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Interactive Multi-Step Form</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            Responsive multi-step application form built using semantic <strong>HTML5 & CSS3</strong>. Features responsive fieldsets, input verification, visual step progress, and clean mobile styling.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Semantic HTML5 Form Controls">HTML5</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="CSS3 Flexbox and Responsive Styling">CSS3</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Mobile-First Architecture">Responsive Design</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Client-Side Form Validation">Form Validation</span>
+          </div>
+        </div>
+        <button onclick="openCaseStudy('form-engine')" class="icon-dock w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors border border-slate-700" data-info="Open Form Case Study">
+          <span>View Technical Case Study</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+      <!-- Project 4: Responsive Web Design Showcase -->
+      <div data-category="web" class="project-card-item card-3d p-6 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-red-950/80 text-red-300 border border-red-500/30">
+              Frontend & Accessibility
+            </span>
+            <span class="text-xs font-mono text-slate-400">Certified Web Design</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Responsive Web Design Showcase</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            Certified responsive website engineered with modern <strong>CSS Grid & Flexbox</strong> layouts, semantic HTML5, and fluid typography ensuring 100% responsiveness on mobile and desktop.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="HTML5 Semantic Layout">HTML5 Semantic</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="CSS3 Grid and Flexbox">CSS Grid & Flexbox</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Mobile-First Architecture">Mobile-First</span>
+            <span class="icon-dock px-2 py-0.5 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Accessibility Guidelines">WCAG Standards</span>
+          </div>
+        </div>
+        <button onclick="openCaseStudy('responsive-web')" class="icon-dock w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors border border-slate-700" data-info="Open Responsive Web Case Study">
+          <span>View Technical Case Study</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       INTERACTIVE SKILLS MATRIX & TECH STACK
+       ====================================================================== -->
+  <section id="skills" class="relative z-10 py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full border-t border-slate-800/80">
+    <div class="mb-8 space-y-2">
+      <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold">Technical Matrix</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        Skills, Tools & Technologies
+      </h2>
+      <p class="text-slate-400 text-xs sm:text-sm">
+        Click on any skill pill to inspect practical applications.
+      </p>
+    </div>
+
+    <!-- Clickable Skill Pills -->
+    <div class="flex flex-wrap gap-2 mb-6">
+      <button data-skill="cpp" class="skill-tag-3d px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-slate-800 text-slate-300 active">
+        C++ (Hostel System)
+      </button>
+      <button data-skill="java" class="skill-tag-3d px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-slate-800 text-slate-300">
+        Java & Swing GUI (Study Planner)
+      </button>
+      <button data-skill="n8n" class="skill-tag-3d px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-slate-800 text-slate-300">
+        Workflow Automation using n8n
+      </button>
+      <button data-skill="aiApps" class="skill-tag-3d px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-slate-800 text-slate-300">
+        Building Applications using AI
+      </button>
+      <button data-skill="webdev" class="skill-tag-3d px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-slate-800 text-slate-300">
+        Responsive Web Designs (HTML & CSS)
+      </button>
+      <button data-skill="python" class="skill-tag-3d px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-slate-800 text-slate-300">
+        Python Programming
+      </button>
+      <button data-skill="make" class="skill-tag-3d px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-slate-800 text-slate-300">
+        Make.com (Certified)
+      </button>
+      <button data-skill="genai" class="skill-tag-3d px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-slate-800 text-slate-300">
+        Generative AI Fluency (FlyRank AI)
+      </button>
+    </div>
+
+    <!-- Dynamic Skill Inspector Panel -->
+    <div id="skill-inspector-panel" class="card-3d p-6 rounded-2xl mb-8">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- 4 Categorized Columns with Clickable Icon Docks -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <div class="card-3d p-4 rounded-xl">
+        <h3 class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold mb-2 flex items-center gap-1.5">
+          <div class="icon-dock w-5 h-5 rounded bg-orange-950/40 flex items-center justify-center text-orange-400" data-skill-jump="cpp"><i data-lucide="code-2" class="w-3.5 h-3.5"></i></div>
+          <span>Systems & OOP</span>
+        </h3>
+        <ul class="text-xs text-slate-300 space-y-1.5">
+          <li class="cursor-pointer hover:text-orange-300" onclick="selectSkill('cpp')">• C++ Programming</li>
+          <li class="cursor-pointer hover:text-orange-300" onclick="selectSkill('java')">• Java & Swing GUI</li>
+          <li class="cursor-pointer hover:text-orange-300" onclick="selectSkill('cpp')">• Object-Oriented Design</li>
+          <li class="cursor-pointer hover:text-orange-300" onclick="selectSkill('cpp')">• File Handling & Data Structures</li>
+        </ul>
+      </div>
+
+      <div class="card-3d p-4 rounded-xl">
+        <h3 class="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold mb-2 flex items-center gap-1.5">
+          <div class="icon-dock w-5 h-5 rounded bg-amber-950/40 flex items-center justify-center text-amber-400" data-skill-jump="n8n"><i data-lucide="network" class="w-3.5 h-3.5"></i></div>
+          <span>Workflow Automation</span>
+        </h3>
+        <ul class="text-xs text-slate-300 space-y-1.5">
+          <li class="cursor-pointer hover:text-amber-300" onclick="selectSkill('n8n')">• n8n Workflow Automation</li>
+          <li class="cursor-pointer hover:text-amber-300" onclick="selectSkill('make')">• Make.com (Certified)</li>
+          <li class="cursor-pointer hover:text-amber-300" onclick="selectSkill('n8n')">• Webhook Processing</li>
+          <li class="cursor-pointer hover:text-amber-300" onclick="selectSkill('n8n')">• Cloud API Orchestration</li>
+        </ul>
+      </div>
+
+      <div class="card-3d p-4 rounded-xl">
+        <h3 class="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold mb-2 flex items-center gap-1.5">
+          <div class="icon-dock w-5 h-5 rounded bg-red-950/40 flex items-center justify-center text-red-400" data-skill-jump="aiApps"><i data-lucide="bot" class="w-3.5 h-3.5"></i></div>
+          <span>AI & Applications</span>
+        </h3>
+        <ul class="text-xs text-slate-300 space-y-1.5">
+          <li class="cursor-pointer hover:text-red-300" onclick="selectSkill('aiApps')">• Building Applications with AI</li>
+          <li class="cursor-pointer hover:text-red-300" onclick="selectSkill('aiApps')">• AI Conversational Chatbots</li>
+          <li class="cursor-pointer hover:text-red-300" onclick="selectSkill('prompt')">• Prompt Engineering</li>
+          <li class="cursor-pointer hover:text-red-300" onclick="selectSkill('genai')">• FlyRank AI Fluency</li>
+        </ul>
+      </div>
+
+      <div class="card-3d p-4 rounded-xl">
+        <h3 class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold mb-2 flex items-center gap-1.5">
+          <div class="icon-dock w-5 h-5 rounded bg-emerald-950/40 flex items-center justify-center text-emerald-400" data-skill-jump="webdev"><i data-lucide="layout" class="w-3.5 h-3.5"></i></div>
+          <span>Responsive Web</span>
+        </h3>
+        <ul class="text-xs text-slate-300 space-y-1.5">
+          <li class="cursor-pointer hover:text-emerald-300" onclick="selectSkill('webdev')">• HTML5 Semantic Markup</li>
+          <li class="cursor-pointer hover:text-emerald-300" onclick="selectSkill('webdev')">• CSS3 Grid & Flexbox</li>
+          <li class="cursor-pointer hover:text-emerald-300" onclick="selectSkill('webdev')">• Responsive Web Forms</li>
+          <li class="cursor-pointer hover:text-emerald-300" onclick="selectSkill('webdev')">• Mobile-First Architecture</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       EXPERIENCE & EDUCATION TIMELINE
+       ====================================================================== -->
+  <section id="experience" class="relative z-10 py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full border-t border-slate-800/80">
+    <div class="mb-10 space-y-2">
+      <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold">Career & Academic Milestones</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        Experience & Education
+      </h2>
+    </div>
+
+    <div class="space-y-6">
+      
+      <!-- Experience: FlyRank AI -->
+      <div class="card-3d p-6 sm:p-7 rounded-2xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
+          <div>
+            <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-orange-950/80 text-orange-300 border border-orange-500/30">Current Professional Role</span>
+            <h3 class="text-xl font-bold text-white mt-1.5">FlyRank AI</h3>
+            <p class="text-sm font-semibold text-orange-400">Artificial Intelligence Intern</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-xs font-mono text-slate-300">August 2026 – Present (2 months)</span>
+            <p class="text-xs text-slate-500">Pakistan • Remote / On-site</p>
+          </div>
+        </div>
+
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+          Currently interning at FlyRank AI as an AI intern, focusing on <strong>General AI Fluency</strong>. Developing structured prompt architectures, evaluating model responses across operational edge cases, and researching automated workflow integrations to elevate team productivity.
+        </p>
+
+        <div class="flex flex-wrap gap-2">
+          <span class="icon-dock px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="FlyRank AI: General AI Fluency">General AI Fluency</span>
+          <span class="icon-dock px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="FlyRank AI: Prompt Structuring">Prompt Engineering</span>
+          <span class="icon-dock px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Workflow Optimization Research">Workflow Efficiencies</span>
+        </div>
+      </div>
+
+      <!-- Education: COMSATS -->
+      <div class="card-3d p-6 sm:p-7 rounded-2xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
+          <div>
+            <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-slate-800 text-amber-300 border border-slate-700">Undergraduate Degree Program</span>
+            <h3 class="text-xl font-bold text-white mt-1.5">COMSATS Institute of Information and Technology</h3>
+            <p class="text-sm font-semibold text-amber-400">Bachelor of Science in Software Engineering (CUI '29)</p>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-xs font-mono text-slate-300">February 2025 – Present</span>
+            <p class="text-xs text-slate-500">Lahore, Punjab, Pakistan</p>
+          </div>
+        </div>
+
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+          Rigorous engineering curriculum covering object-oriented programming (OOP in C++ & Java), data structures, algorithms, system architecture, database design, and software lifecycle principles.
+        </p>
+
+        <div class="flex flex-wrap gap-2">
+          <span class="icon-dock px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="COMSATS Software Engineering Curriculum">Software Engineering</span>
+          <span class="icon-dock px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="C++ & Java OOP Projects">OOP (C++ & Java)</span>
+          <span class="icon-dock px-2.5 py-1 text-xs font-mono rounded bg-slate-900 text-slate-300 border border-slate-800" data-info="Algorithms & Data Structures">Data Structures</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       VERIFIED CERTIFICATIONS
+       ====================================================================== -->
+  <section id="certifications" class="relative z-10 py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full border-t border-slate-800/80">
+    <div class="mb-10 space-y-2">
+      <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold">Continuous Learning</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        Verified Certifications & Credentials
+      </h2>
+      <p class="text-slate-400 text-xs sm:text-sm">
+        Accredited courses completed to build depth in visual automation, programming, and generative AI.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      
+      <!-- Cert 1 -->
+      <div class="card-3d p-5 rounded-2xl flex flex-col justify-between" onclick="showToastNotification('Make Foundation: Certified in Cloud Automation')">
+        <div>
+          <div class="icon-dock w-8 h-8 rounded-lg bg-orange-950/40 text-orange-400 border border-orange-500/30 flex items-center justify-center mb-3">
+            <i data-lucide="git-branch" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">Make Foundation</h3>
+          <p class="text-xs font-mono text-orange-300 mb-2">Make.com (Integromat)</p>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Constructing multi-step visual workflows, webhooks, error handlers, and API integrations across cloud software.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-emerald-400">
+          <span>Verified Credential</span>
+          <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Cert 2 -->
+      <div class="card-3d p-5 rounded-2xl flex flex-col justify-between" onclick="showToastNotification('Introduction to Generative AI: Certified')">
+        <div>
+          <div class="icon-dock w-8 h-8 rounded-lg bg-amber-950/40 text-amber-400 border border-amber-500/30 flex items-center justify-center mb-3">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">Intro to Generative AI</h3>
+          <p class="text-xs font-mono text-amber-300 mb-2">Foundation Models & LLMs</p>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Mechanics of foundation models, transformer architectures, diffusion principles, and prompt conditioning.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-emerald-400">
+          <span>Verified Credential</span>
+          <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Cert 3 -->
+      <div class="card-3d p-5 rounded-2xl flex flex-col justify-between" onclick="showToastNotification('AI For Everyone: DeepLearning.AI Certified')">
+        <div>
+          <div class="icon-dock w-8 h-8 rounded-lg bg-red-950/40 text-red-400 border border-red-500/30 flex items-center justify-center mb-3">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">AI For Everyone</h3>
+          <p class="text-xs font-mono text-red-300 mb-2">DeepLearning.AI / Andrew Ng</p>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            AI business strategy, machine learning lifecycle, identifying feasible AI opportunities, and ethics.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-emerald-400">
+          <span>Verified Credential</span>
+          <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Cert 4 -->
+      <div class="card-3d p-5 rounded-2xl flex flex-col justify-between" onclick="showToastNotification('Basics of Python: Certified Programming Foundations')">
+        <div>
+          <div class="icon-dock w-8 h-8 rounded-lg bg-orange-950/40 text-orange-400 border border-orange-500/30 flex items-center justify-center mb-3">
+            <i data-lucide="code" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">Basics of Python</h3>
+          <p class="text-xs font-mono text-orange-300 mb-2">Python Fundamentals</p>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Syntax, lists, dictionaries, tuples, control structures, functions, and scripting automation.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-emerald-400">
+          <span>Verified Credential</span>
+          <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Cert 5 -->
+      <div class="card-3d p-5 rounded-2xl flex flex-col justify-between" onclick="showToastNotification('Responsive Web Design: Certified in Modern Frontend Standards')">
+        <div>
+          <div class="icon-dock w-8 h-8 rounded-lg bg-amber-950/40 text-amber-400 border border-amber-500/30 flex items-center justify-center mb-3">
+            <i data-lucide="layout" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">Responsive Web Design</h3>
+          <p class="text-xs font-mono text-amber-300 mb-2">Frontend Standards</p>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Modern CSS flexbox, grid, media queries, accessibility standards, and mobile-first responsive design.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-emerald-400">
+          <span>Verified Credential</span>
+          <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Ongoing Focus -->
+      <div class="card-3d p-5 rounded-2xl flex flex-col justify-between border-orange-500/30">
+        <div>
+          <div class="icon-dock w-8 h-8 rounded-lg bg-orange-950/60 text-orange-300 border border-orange-500/40 flex items-center justify-center mb-3">
+            <i data-lucide="book-open" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">Ongoing Learning</h3>
+          <p class="text-xs font-mono text-orange-300 mb-2">Autonomous Systems & Tools</p>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Deepening expertise in multi-agent routing, tool calling, and deterministic prompt chaining for business workflows.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-orange-500/20 flex items-center justify-between text-[11px] font-mono text-orange-400">
+          <span>Active Practice</span>
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       CONTACT & COLLABORATION HUB (CLEAN SUBMIT, NO EMAIL APP ICON)
+       ====================================================================== -->
+  <section id="contact" class="relative z-10 py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full border-t border-slate-800/80">
+    <div class="card-3d p-8 sm:p-12 rounded-3xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left Contact Column -->
+        <div class="lg:col-span-5 space-y-5">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-orange-400 font-semibold">Get In Touch</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-1">
+              Let's Connect & Collaborate.
+            </h2>
+          </div>
+
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            Whether you want to discuss software development, explore workflow automation with n8n, or connect regarding internships and engineering opportunities, I'd love to hear from you.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            
+            <!-- Email -->
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div class="overflow-hidden">
+                <span class="text-[10px] font-mono text-slate-400 block">Direct Email</span>
+                <a href="mailto:ayeshaasghar224@gmail.com" class="text-xs sm:text-sm font-semibold text-white hover:text-orange-400 transition-colors truncate block">
+                  ayeshaasghar224@gmail.com
+                </a>
+              </div>
+              <button onclick="document.getElementById('copy-email-btn').click()" class="icon-dock px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono shrink-0 ml-2 transition-colors" data-info="Copy Email Address">
+                Copy
+              </button>
+            </div>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/ayesha-asghar6" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-orange-500/40 flex items-center justify-between group transition-colors block">
+              <div>
+                <span class="text-[10px] font-mono text-slate-400 block">LinkedIn Profile</span>
+                <span class="text-xs sm:text-sm font-semibold text-white group-hover:text-orange-300 transition-colors">
+                  linkedin.com/in/ayesha-asghar6
+                </span>
+              </div>
+              <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- Location -->
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center space-x-3">
+              <div class="icon-dock w-8 h-8 rounded-lg bg-slate-800 text-orange-400 flex items-center justify-center shrink-0" data-info="Lahore, Punjab, Pakistan">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-mono text-slate-400 block">Location</span>
+                <span class="text-xs sm:text-sm font-semibold text-white">Lahore, Punjab, Pakistan</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Inquiry Form (Clean Action) -->
+        <div class="lg:col-span-7">
+          <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+            <h3 class="text-base font-bold text-white">Send a Direct Message</h3>
+            
+            <form id="inquiry-form" class="space-y-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label for="inquiry-name" class="block text-xs font-mono text-slate-300 mb-1">Your Name</label>
+                  <input type="text" id="inquiry-name" required placeholder="Alex Morgan" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-xs focus:ring-1 focus:ring-orange-500 outline-none">
+                </div>
+                <div>
+                  <label for="inquiry-email" class="block text-xs font-mono text-slate-300 mb-1">Your Email</label>
+                  <input type="email" id="inquiry-email" required placeholder="alex@company.com" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-xs focus:ring-1 focus:ring-orange-500 outline-none">
+                </div>
+              </div>
+
+              <div>
+                <label for="inquiry-service" class="block text-xs font-mono text-slate-300 mb-1">Area of Interest</label>
+                <select id="inquiry-service" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs focus:ring-1 focus:ring-orange-500 outline-none">
+                  <option value="Workflow Automation using n8n">Workflow Automation using n8n</option>
+                  <option value="Building Applications using AI">Building Applications using AI</option>
+                  <option value="Responsive Web Designs">Responsive Web Designs</option>
+                  <option value="Software Engineering Project (C++ / Java)">Software Engineering Project (C++ / Java)</option>
+                  <option value="Internship / Engineering Opportunity">Internship / Engineering Opportunity</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="inquiry-message" class="block text-xs font-mono text-slate-300 mb-1">Message Details</label>
+                <textarea id="inquiry-message" rows="3" required placeholder="Describe your project, ideas, or questions..." class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-xs focus:ring-1 focus:ring-orange-500 outline-none resize-none"></textarea>
+              </div>
+
+              <!-- Clean Submit Button (No email app icon) -->
+              <button type="submit" class="w-full py-2.5 rounded-xl font-semibold text-white bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-500 hover:to-amber-500 transition-colors text-xs flex items-center justify-center space-x-1.5 shadow-md shadow-orange-600/20">
+                <span>Send Message</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+
+              <div id="inquiry-feedback" class="hidden mt-2"></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="border-t border-slate-800/80 bg-[#05070a] py-8 px-4 sm:px-6 relative z-10">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-white">Ayesha Asghar</span>
+        <span>•</span>
+        <span>Software Engineering (CUI '29) & AI Intern at FlyRank AI</span>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <a href="#about" class="hover:text-orange-400 transition-colors">About</a>
+        <a href="#services" class="hover:text-orange-400 transition-colors">Services</a>
+        <a href="#projects" class="hover:text-orange-400 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-orange-400 transition-colors">Skills</a>
+        <a href="#experience" class="hover:text-orange-400 transition-colors">Experience</a>
+        <a href="#contact" class="hover:text-orange-400 transition-colors">Contact</a>
+      </div>
+
+      <div class="font-mono text-[11px] text-slate-500">
+        &copy; 2026 Ayesha Asghar. Learning by building.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       HIGHLY INTERACTIVE 3D FLOATING CHATBOT ASSISTANT ("AYESHA AI")
+       ====================================================================== -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    
+    <!-- Expandable Chatbot Window -->
+    <div id="chatbot-window" class="chatbot-popup hidden-chat w-[330px] sm:w-[380px] h-[490px] rounded-3xl bg-[#0d111b] border border-orange-500/30 shadow-2xl flex flex-col overflow-hidden mb-3">
+      
+      <!-- Chat Header -->
+      <div class="p-4 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-9 h-9 rounded-xl bg-orange-600/30 border border-orange-500/40 flex items-center justify-center font-bold text-xs text-orange-400">
+            AI
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white flex items-center gap-1.5">
+              Ask Ayesha AI
+              <span class="w-2 h-2 rounded-full bg-orange-500 status-pulse-orange"></span>
+            </h4>
+            <p class="text-[11px] font-mono text-slate-400">Interactive Assistant • Online</p>
+          </div>
+        </div>
+        <button id="chatbot-close-btn" class="icon-dock p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors" aria-label="Close Chat">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Quick Suggestion Chips -->
+      <div class="px-3 py-2 bg-slate-950/60 border-b border-slate-800 flex items-center gap-1.5 overflow-x-auto text-[11px] font-mono scrollbar-none">
+        <button data-prompt="Tell me about the Hostel Management System in C++" class="chat-prompt-pill px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:bg-orange-950/40 hover:text-orange-300 border border-slate-700 shrink-0 transition-colors">
+          Hostel System (C++)?
+        </button>
+        <button data-prompt="Tell me about the Study Planner in Java" class="chat-prompt-pill px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:bg-orange-950/40 hover:text-orange-300 border border-slate-700 shrink-0 transition-colors">
+          Study Planner (Java)?
+        </button>
+        <button data-prompt="What services do you provide?" class="chat-prompt-pill px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:bg-orange-950/40 hover:text-orange-300 border border-slate-700 shrink-0 transition-colors">
+          3 Services?
+        </button>
+        <button data-prompt="Tell me about FlyRank AI" class="chat-prompt-pill px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:bg-orange-950/40 hover:text-orange-300 border border-slate-700 shrink-0 transition-colors">
+          FlyRank AI?
+        </button>
+        <button data-prompt="COMSATS degree details" class="chat-prompt-pill px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:bg-orange-950/40 hover:text-orange-300 border border-slate-700 shrink-0 transition-colors">
+          COMSATS '29?
+        </button>
+      </div>
+
+      <!-- Chat Messages Scroll Container -->
+      <div id="chatbot-messages" class="flex-1 p-4 overflow-y-auto space-y-3 font-sans">
+        <div class="flex justify-start items-start space-x-2">
+          <div class="w-6 h-6 rounded-full bg-orange-600/30 border border-orange-500/40 flex items-center justify-center text-[10px] text-orange-400 font-bold shrink-0 mt-1">AA</div>
+          <div class="chat-bubble-ai max-w-[85%] px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm leading-relaxed text-slate-200">
+            Hi! I am Ayesha's interactive assistant. Ask me anything about her projects like the <strong>Hostel Control Management System in C++</strong>, the <strong>Study Planner in Java Swing</strong>, her <strong>Responsive Web Designs</strong>, or her work at <strong>FlyRank AI</strong>!
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Form -->
+      <form id="chatbot-form" class="p-3 bg-slate-900/95 border-t border-slate-800 flex items-center space-x-2">
+        <input type="text" id="chatbot-input" placeholder="Ask a question..." class="flex-1 px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-xs sm:text-sm focus:ring-1 focus:ring-orange-500 outline-none">
+        <button type="submit" class="icon-dock p-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white transition-colors" aria-label="Send message">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </form>
+
+    </div>
+
+    <!-- Floating 3D Launcher Button with Glowing Rust/Orange Aura -->
+    <button id="chatbot-toggle-btn" class="floating-chatbot-launcher px-4 py-3 rounded-full bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600 text-white shadow-2xl flex items-center space-x-2.5 transition-transform hover:scale-105 active:scale-95 group border border-orange-400/40" aria-label="Open AI Chat Assistant">
+      <div class="relative">
+        <i data-lucide="bot" class="w-5 h-5"></i>
+        <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400"></span>
+      </div>
+      <span class="text-xs sm:text-sm font-semibold tracking-tight">Ask Ayesha AI</span>
+    </button>
+
+  </div>
+
+  <!-- ======================================================================
+       CASE STUDY DETAIL MODAL
+       ====================================================================== -->
+  <div id="case-study-modal" class="modal-backdrop-3d hidden-modal fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="modal-box-3d bg-[#0e121c] border border-orange-500/30 rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeCaseStudy()" class="icon-dock absolute top-5 right-5 p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors" aria-label="Close modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div id="modal-case-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>
