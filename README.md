@@ -45,12 +45,6 @@ Simply double-click **`index.html`** in this folder to open and interact with th
 
 ---
 
-## 🌐 1-Click Free Web Deployment
-
-- **Netlify Drop**: Drag and drop the `ayesha-portfolio` folder into [app.netlify.com/drop](https://app.netlify.com/drop) to publish it live in seconds.
-- **GitHub Pages**: Push this repository to GitHub and enable GitHub Pages under **Settings** &rarr; **Pages**.
-
----
 
 ## 📬 Contact Details
 - **Email**: `ayeshaasghar224@gmail.com`
