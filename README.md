@@ -1,5 +1,4 @@
-# Ayesha Asghar — 3D Neo-Futuristic Portfolio (Rust & Orange Theme)
-
+# Ayesha Asghar — Portfolio 
 A stylish, responsive, and interactive **3D Neo-Futuristic portfolio** engineered for **Ayesha Asghar**—Software Engineering Student at **COMSATS (CUI '29)**, AI Intern at **FlyRank AI**, and specialist in **Software Systems, Responsive Web Apps, and AI Automations**.
 
 ---
